@@ -1,0 +1,40 @@
+{
+  "name": "ResponsiveImage",
+  "version": "0.0.1",
+  "homepage": "https://github.com/ReactComponents/ResponsiveImage",
+  "authors": [
+    "Bobby <puppybits@gmail.com>"
+  ],
+  "main": "./src/ResponsiveImage.js",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "material-design",
+    "react",
+    "web components"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "react": "^0.13.3",
+    "webpack": "^1.0.0",
+    "resize-image-loader": "^0.2.4"
+  },
+  "_release": "0.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.0.1",
+    "commit": "f10e259b09128f932fe2a2264b2092eec9bf0dde"
+  },
+  "_source": "https://github.com/ReactComponents/ResponsiveImage",
+  "_target": "~0.0.1",
+  "_originalSource": "ResponsiveImage"
+}
