@@ -38,3 +38,12 @@ render(){
 		placeholder={require('resize-image?placeholder!images/hero-img.jpg')} />);
 }
 ```
+
+
+## Working with the ReactComponents project
+
+The goals of this project is to have high quality, composable
+components. Each component in this library has as few
+cross dependancies as possible. To that end, it's recommended
+this you fork each repo and iterate on them when a bug arrises or
+you need extra functionality. 
