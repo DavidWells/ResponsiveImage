@@ -26,30 +26,30 @@ module.exports = React.createClass({
     var coverStyle = {
       top: '0',
       left: '0',
-      width: '100%'};
+      width: '100vw'};
 
     var placeholder = {className:'placeholder',
       src:this.props.placeholder,
       style:assign({}, {
-        opacity:(this.state.loaded ? 0 : 1),
-        transition: 'opacity 10ms 3100ms'},
-        (this.props.cover ? {width: '100%'} : null))};
+        opacity:(this.state.loaded ? 1 : 1),
+        transition: 'opacity 300ms ease-out'},
+        (this.props.cover ? coverStyle : null))};
 
     var img = assign({}, this.props, {
       srcSet:this.props.srcSet,
       style:assign({}, {
-        opacity:(this.state.loaded ? 1 : 0),
-        transition: 'opacity 3000ms',
+        opacity:(this.state.loaded ? 0 : 0),
+        transition: 'opacity 300ms ease-in',
         position:'absolute'},
         (this.props.cover ? coverStyle : null)),
       onLoad:() => this.setState({loaded:true})});
     delete img.placeholder;
 
     var style = assign({}, this.props.style);
-    style.height = style.height || '100%';
+    style.height = style.height || '100vw';
 
     return React.createElement('div', {style:style},
-      React.createElement('div', {style:{position: 'relative', width:'100vw', minWidth:'100%', minHeight:'100%'}},
+      React.createElement('div', {style:{position: 'relative', minWidth:'100%', minHeight:'100%'}},
         React.createElement('img', placeholder),
         React.createElement('img', img)));
   },
