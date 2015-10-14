@@ -1,8 +1,7 @@
 {
   "name": "ResponsiveImage",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "description": "",
-  "bin": "dist/ResponsiveImage.js",
   "main": "src/ResponsiveImage.js",
   "scripts": {
     "build": "webpack --config ./webpack-config.js --progress --colors"
