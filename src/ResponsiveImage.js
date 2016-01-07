@@ -7,7 +7,7 @@ module.exports = React.createClass({
 
   propsTypes: {
     src: React.PropTypes.string.isRequired,
-    srcset: React.PropTypes.oneOfType([
+    srcSet: React.PropTypes.oneOfType([
       React.PropTypes.string,
       React.PropTypes.object]).isRequired,
     placeholder: React.PropTypes.object,
@@ -27,31 +27,31 @@ module.exports = React.createClass({
 
   render:function() {
 
-    var isObject = typeof this.props.srcset === "object",
-      srcset = isObject ? this.props.srcset.srcset : this.props.srcset,
-      placeholder = isObject ? this.props.srcset.placeholder : this.props.placeholder;
+    var isObject = this.props.srcSet.hasOwnProperty("srcSet"),
+      srcSet = isObject ? this.props.srcSet.srcSet : this.props.srcSet,
+      placeholder = isObject ? this.props.srcSet.placeholder : this.props.placeholder;
 
     if (!placeholder) {
-      return this.renderNoPlaceholder(srcset);
+      return this.renderNoPlaceholder(srcSet);
     }
 
-    return this.renderCover(srcset, placeholder);
+    return this.renderCover(srcSet, placeholder);
   },
 
-	renderNoPlaceholder:function(srcset) {
+	renderNoPlaceholder:function(srcSet) {
 
     var img = assign({}, this.props, {
-      srcSet:srcset,
+      srcSet:srcSet,
       style:assign({}, this.props.style || {}),
       onLoad:function(){
         this.setState({loaded:true});
       }.bind(this)});
-    delete img.srcset;
+    delete img.srcSet;
 
     return React.createElement('img', img);
   },
 
-  renderCover:function(srcset, placeholder) {
+  renderCover:function(srcSet, placeholder) {
 
     var coverStyle = {
       top: '0',
@@ -72,7 +72,7 @@ module.exports = React.createClass({
         (this.props.cover ? {width: '100%'} : null))};
 
     var img = assign({}, this.props, {
-      srcSet:srcset,
+      srcSet:srcSet,
       style:assign({}, {
         opacity:(!placeholder || this.state.loaded ? 1 : 0),
         transition: (!placeholder ? '' : 'opacity 3000ms'),
@@ -81,7 +81,7 @@ module.exports = React.createClass({
       onLoad:function(){
         this.setState({loaded:true});
       }.bind(this)});
-    delete img.srcset;
+    delete img.srcSet;
     delete img.placeholder;
 
     var style = assign({}, this.props.style);
@@ -92,4 +92,5 @@ module.exports = React.createClass({
         React.createElement('img', temp),
         React.createElement('img', img)));
   },
+
 });
